@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: RestaurantsInTown
+  #  thymeleaf:
+  #    check-template-location: true
+  #    cache: false
+  #    prefix: file:./src/main/resources/templates/
+  #  port: 8080
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/restaurantsintown?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

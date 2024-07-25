@@ -22,6 +22,12 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @OneToMany(mappedBy = "addedBy")
+    private List<Restaurant> addedRestaurants;
+
+    @ManyToMany
+    private List<Restaurant> favouriteRestaurants;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -31,6 +37,8 @@ public class UserEntity {
     private List<UserRoleEntity> roles = new ArrayList<>();
 
     public UserEntity() {
+        addedRestaurants = new ArrayList<>();
+        favouriteRestaurants = new ArrayList<>();
     }
 
     public long getId() {
@@ -71,5 +79,21 @@ public class UserEntity {
 
     public void setRoles(List<UserRoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public List<Restaurant> getAddedRestaurants() {
+        return addedRestaurants;
+    }
+
+    public void setAddedRestaurants(List<Restaurant> addedRestaurants) {
+        this.addedRestaurants = addedRestaurants;
+    }
+
+    public List<Restaurant> getFavouriteRestaurants() {
+        return favouriteRestaurants;
+    }
+
+    public void setFavouriteRestaurants(List<Restaurant> favouriteRestaurants) {
+        this.favouriteRestaurants = favouriteRestaurants;
     }
 }

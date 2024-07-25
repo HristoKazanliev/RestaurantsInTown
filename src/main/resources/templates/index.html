@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>RestaurantsInTown</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <script src="/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-</head>
+<head th:replace="fragments/commons::head"></head>
 <body>
 <main>
     <div class="container bg-blur rounded mt-5 ">
@@ -31,5 +23,6 @@
         </h3>
     </div>
 </main>
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

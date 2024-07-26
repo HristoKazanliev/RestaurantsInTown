@@ -17,6 +17,8 @@ public class Category {
     @Enumerated(EnumType.STRING)
     private CategoryEnum name;
 
+    private String description;
+
     @OneToMany(mappedBy = "category")
     private List<Restaurant> restaurants;
 
@@ -24,10 +26,11 @@ public class Category {
         this.restaurants = new ArrayList<>();
     }
 
-    public Category(CategoryEnum name) {
+    public Category(CategoryEnum name, String description) {
         this();
 
         this.name = name;
+        this.description = description;
     }
 
     public long getId() {
@@ -44,6 +47,14 @@ public class Category {
 
     public void setName(CategoryEnum name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<Restaurant> getRestaurants() {

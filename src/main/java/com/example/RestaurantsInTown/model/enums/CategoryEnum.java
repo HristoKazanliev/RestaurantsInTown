@@ -4,5 +4,5 @@ public enum CategoryEnum {
     BULGARIAN,
     ITALIAN,
     JAPANESE,
-    INDIAN
+    TURKISH
 }

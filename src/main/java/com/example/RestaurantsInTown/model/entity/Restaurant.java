@@ -13,7 +13,7 @@ public class Restaurant {
     private String name;
 
     @Column(nullable = false)
-    private String url;
+    private String imageUrl;
 
     @Column(nullable = false)
     private String location;
@@ -43,12 +43,12 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImageUrl(String url) {
+        this.imageUrl = url;
     }
 
     public String getLocation() {

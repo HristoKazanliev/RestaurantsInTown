@@ -11,10 +11,10 @@ import java.util.Map;
 @Component
 public class InitCategories implements CommandLineRunner {
     private final Map<CategoryEnum, String> descriptions = Map.of(
-            CategoryEnum.BULGARIAN, "Bulgarian cuisine is exceptionally diverse and delicious, consisting of various salads, breadstuffs, stews, and other local dishes.",
-            CategoryEnum.JAPANESE, "The traditional cuisine of Japan is based on rice with miso soup and other dishes with an emphasis on seasonal ingredients.",
-            CategoryEnum.ITALIAN, "The Mediterranean diet forms the basis of Italian cuisine, rich in pasta, fish, fruits and vegetables.",
-            CategoryEnum.TURKISH, "Turkish cuisine is known for its rich flavors and diverse dishes."
+            CategoryEnum.FAST_FOOD, "Fast food restaurants attract diners because of their price, convenience, and speed.",
+            CategoryEnum.CAFE, "Cafes offer a relaxed atmosphere, often serving as a neighborhood hub where people meet over coffee and light bites.",
+            CategoryEnum.PUB, "A pub is in several countries a drinking establishment licensed to serve alcoholic drinks for consumption on the premises.",
+            CategoryEnum.FINE_DINING, "Fine dining restaurants offer more sophisticated, elevated, higher-quality dining experiences."
     );
 
     private final CategoryRepository categoryRepository;

@@ -4,6 +4,7 @@ import com.example.RestaurantsInTown.model.dto.RestaurantAddDTO;
 import com.example.RestaurantsInTown.model.entity.Category;
 import com.example.RestaurantsInTown.model.entity.Restaurant;
 import com.example.RestaurantsInTown.model.entity.UserEntity;
+import com.example.RestaurantsInTown.model.enums.CategoryEnum;
 import com.example.RestaurantsInTown.repository.CategoryRepository;
 import com.example.RestaurantsInTown.repository.RestaurantRepository;
 import com.example.RestaurantsInTown.repository.UserRepository;
@@ -11,7 +12,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Service
 public class RestaurantService {
@@ -35,12 +40,24 @@ public class RestaurantService {
 
         Restaurant restaurant = modelMapper.map(restaurantAddDTO, Restaurant.class);
         UserEntity user = userRepository.findByUsername(userDetails.getUsername()).orElseThrow();
-
         restaurant.setCategory(categoryByName.get());
         restaurant.setAddedBy(user);
 
         restaurantRepository.save(restaurant);
 
         return true;
+    }
+
+    public Map<CategoryEnum, List<Restaurant>> getAllByCategory() {
+        Map<CategoryEnum, List<Restaurant>> map = new HashMap<>();
+        List<Category> categories = categoryRepository.findAll();
+
+        for (Category category : categories) {
+            List<Restaurant> restaurantsByCategory = restaurantRepository.findByCategory(category);
+
+            map.put(category.getName(), restaurantsByCategory);
+        }
+
+        return map;
     }
 }

@@ -6,7 +6,7 @@
 <header th:replace="fragments/commons::nav"></header>
 <main>
     <div class="container bg-blur rounded mt-1 mb-4">
-        <h5 class="bg-gray text-dark mb-0 mt-0">All restaurants by categories</h5>
+        <h3 class="bg-gray text-dark mb-0 mt-0">All restaurants by categories</h3>
         <div class="row mt-1 mb-2">
             <div class="col-6 mt-1 mb-1">
 
@@ -44,11 +44,14 @@
                                 <td th:text="${fastFood.getName()}"></td>
                                 <td th:text="${fastFood.getLocation()}"></td>
                                 <td>
-                                    <form th:method="post" th:action="@{/add-to-favourites/{id}(id = ${fastFood.getId()})}">
-                                        <button type="submit">
-                                            <img class="mr-2 " src="/img/add-to-favourites.png"  alt="Cocktail" width="35px" height="35px">
-                                        </button>
-                                    </form>
+                                    <div class="card-body">
+                                        <a class="card-link" th:href="@{/restaurants/details/{id}(id=*{fastFood.getId()})}">Details</a>
+                                    </div>
+<!--                                    <form th:method="post" th:action="@{/add-to-favourites/{id}(id = ${fastFood.getId()})}">-->
+<!--                                        <button type="submit">-->
+<!--                                            <img class="mr-2 " src="/img/add-to-favourites.png"  alt="Cocktail" width="35px" height="35px">-->
+<!--                                        </button>-->
+<!--                                    </form>-->
                                 </td>
                             </tr>
                         </table>
@@ -90,11 +93,14 @@
                                 <td th:text="${fineDining.getName()}"></td>
                                 <td th:text="${fineDining.getLocation()}"></td>
                                 <td>
-                                    <form th:method="post" th:action="@{/add-to-favourites/{id}(id = ${fineDining.getId()})}">
-                                        <button type="submit">
-                                            <img class="mr-2 " src="/img/add-to-favourites.png"  alt="Main-Dish" width="35px" height="35px">
-                                        </button>
-                                    </form>
+                                    <div class="card-body">
+                                        <a class="card-link" th:href="@{/restaurants/details/{id}(id=*{fineDining.getId()})}">Details</a>
+                                    </div>
+<!--                                    <form th:method="post" th:action="@{/add-to-favourites/{id}(id = ${fineDining.getId()})}">-->
+<!--                                        <button type="submit">-->
+<!--                                            <img class="mr-2 " src="/img/add-to-favourites.png"  alt="Main-Dish" width="35px" height="35px">-->
+<!--                                        </button>-->
+<!--                                    </form>-->
                                 </td>
                             </tr>
                         </table>

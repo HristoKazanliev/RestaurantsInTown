@@ -1,31 +1,31 @@
 package com.example.RestaurantsInTown.model.dto;
 
 import com.example.RestaurantsInTown.model.enums.CategoryEnum;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
-public class RestaurantAddDTO {
-    @NotBlank
-    @Size(min = 2, max = 40)
+public class RestaurantDetailsDTO {
+    private Long id;
     private String name;
-
-    @NotBlank
     private String imageUrl;
-
-    @NotBlank
-    @Size(min = 3, max = 40)
     private String location;
-
-    @NotBlank
-    @Size(min = 3, max = 50)
     private String description;
 
-    @NotNull
-    private CategoryEnum category;
+    public RestaurantDetailsDTO() {
+    }
 
-    public RestaurantAddDTO() {
+    public RestaurantDetailsDTO(Long id, String name, String imageUrl,String location, String description) {
+        this.id = id;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.location = location;
+        this.description = description;
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -58,13 +58,5 @@ public class RestaurantAddDTO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public CategoryEnum getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEnum category) {
-        this.category = category;
     }
 }

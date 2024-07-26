@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+    <div class="container mt-5" th:object="${restaurantDetails}">
+        <div class="card">
+            <img th:src="${restaurantDetails.getImageUrl()}" class="card-img-top" alt="Restaurant Image">
+            <div class="card-body">
+                <h2 class="card-title text-center" th:text="${restaurantDetails.getName()}"></h2>
+                <p class="card-text"><strong>Address:</strong> <span th:text="${restaurantDetails.getLocation()}"></span></p>
+                <p class="card-text"><strong>Description:</strong> <span th:text="${restaurantDetails.getDescription()}"></span></p>
+                <div>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

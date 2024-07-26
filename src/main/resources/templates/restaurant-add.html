@@ -31,8 +31,16 @@
         <label for="location" class="h4 mb-2">Location</label>
       </div>
       <input id="location" type="text" class="form-control" th:field="*{location}" th:errorclass="'is-invalid alert-danger'"
-             placeholder="Put restaurant image URL here">
+             placeholder="Put restaurant location here">
       <small class="invalid-feedback text-danger">Location error message</small>
+    </div>
+
+    <div class="form-group">
+      <div class="label-holder text-white textCol d-flex justify-content-center">
+        <label for="description" class="h4 mb-2">Description</label>
+      </div>
+      <textarea type="text" class="form-control" id="description" name="description" placeholder="Put restaurant description here" th:field="*{description}" th:errorclass="'is-invalid alert-danger'"></textarea>
+      <small class="invalid-feedback text-danger">Description error message</small>
     </div>
 
     <div class="form-group">

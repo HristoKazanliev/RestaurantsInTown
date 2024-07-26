@@ -33,7 +33,7 @@ public class SecurityConfig {
                                 .usernameParameter("username")
                                 .passwordParameter("password")
                                 // successful login
-                                .defaultSuccessUrl("/", true)
+                                .defaultSuccessUrl("/home", true)
                                 // login fails
                                 .failureForwardUrl("/users/login-error")
                 )

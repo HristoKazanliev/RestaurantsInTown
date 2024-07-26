@@ -1,6 +1,7 @@
 package com.example.RestaurantsInTown.service;
 
 import com.example.RestaurantsInTown.model.dto.RestaurantAddDTO;
+import com.example.RestaurantsInTown.model.dto.RestaurantDetailsDTO;
 import com.example.RestaurantsInTown.model.entity.Category;
 import com.example.RestaurantsInTown.model.entity.Restaurant;
 import com.example.RestaurantsInTown.model.entity.UserEntity;
@@ -59,5 +60,12 @@ public class RestaurantService {
         }
 
         return map;
+    }
+
+    public RestaurantDetailsDTO getRestaurantDetails(Long id) {
+        return restaurantRepository
+                .findById(id)
+                .map(r -> modelMapper.map(r, RestaurantDetailsDTO.class))
+                .orElseThrow();
     }
 }

@@ -18,6 +18,9 @@ public class Restaurant {
     @Column(nullable = false)
     private String location;
 
+    @Column(nullable = false)
+    private String description;
+
     @ManyToOne(optional = false)
     private Category category;
 
@@ -57,6 +60,14 @@ public class Restaurant {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Category getCategory() {
